@@ -8,6 +8,7 @@ import { UserToken } from "./types/user-token-type"
 import homeRoute from "./routes/home-route"
 import postRoute from "./routes/post/post-route"
 import authRoute from "./routes/auth/auth-route"
+import { authMiddleware } from "./middlewares/auth-middleware"
 
 dotenv.config()
 
@@ -38,6 +39,7 @@ const PORT = process.env.PORT ?? 5000
 app.use("/", homeRoute)
 
 app.use("/post", postRoute)
+app.use("/admin/post", authMiddleware as any, postRoute)
 
 // auth routes
 app.use("/auth", authRoute)

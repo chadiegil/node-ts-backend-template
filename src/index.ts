@@ -38,6 +38,9 @@ app.use("/", homeRoute)
 
 app.use("/post", postRoute)
 
+// auth routes
+// app.use('login',auth)
+
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`)
 })

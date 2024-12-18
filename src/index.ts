@@ -7,6 +7,7 @@ import { UserToken } from "./types/user-token-type"
 
 import homeRoute from "./routes/home-route"
 import postRoute from "./routes/post/post-route"
+import authRoute from "./routes/auth/auth-route"
 
 dotenv.config()
 
@@ -39,7 +40,7 @@ app.use("/", homeRoute)
 app.use("/post", postRoute)
 
 // auth routes
-// app.use('login',auth)
+app.use("/auth", authRoute)
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`)
